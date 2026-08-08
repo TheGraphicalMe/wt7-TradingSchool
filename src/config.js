@@ -29,10 +29,9 @@ His approach focuses on real market understanding rather than shortcuts or unrea
 //  QUICK TABS — shown on the hero section
 // ═══════════════════════════════════════════════════════════
 export const QUICK_TABS = [
-  { label: 'Live Trading Class', targetId: 'https://wzhdwc.courses.store/844422?true&coupon=STUDENT007', color: 'var(--accent)', shadow: 'var(--accent)', theme: 'purple' },
+  { label: 'Live Trading Class', targetId: 'https://www.wizardtrader7.com/courses/880561?true&coupon=STUDENT007', color: 'var(--accent)', shadow: 'var(--accent)', theme: 'purple' },
   //{ label: 'Psychology Mastery', targetId: 'https://www.wizardtrader7.com/courses/813688', color: '#ffa94d', shadow: 'rgba(255,169,77,0.8)', theme: 'orange' },
   { label: 'Smart AI Access', targetId: 'https://smartaitradingpro.com/', color: '#00e5a0', shadow: 'rgba(0,229,160,0.8)', theme: 'green' },
-  { label: 'Trading Competition', targetId: '#competition', color: '#FFD700', shadow: 'rgba(255,215,0,0.8)', theme: 'yellow' },
 ]
 
 // ═══════════════════════════════════════════════════════════

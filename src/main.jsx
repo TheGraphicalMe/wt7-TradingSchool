@@ -7,6 +7,7 @@ import Cursor      from './components/Cursor'
 import Preloader from './components/Preloader'
 // import PopupNotification from './components/PopupNotification'
 import { useMagneticButtons } from './hooks/useMagneticButtons'
+import ContactTab from './components/ContactTab'
 
 function App() {
   const [loaded, setLoaded] = useState(false)
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={loaded ? <Home /> : null} />
       </Routes>
+      <ContactTab />
       {/* {loaded && <PopupNotification />} */}
     </BrowserRouter>
   )

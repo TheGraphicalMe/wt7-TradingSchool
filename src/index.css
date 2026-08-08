@@ -1,3 +1,47 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* ── Glass Badge ── */
+  .glass-badge {
+    @apply inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-green/[0.06] backdrop-blur-[12px];
+    border: 1px solid rgba(13, 255, 127, 0.15);
+  }
+  /* ── Form Elements ── */
+  .form-input {
+    @apply w-full py-3.5 px-4 rounded-[10px] bg-white/[0.04] text-white font-body text-[0.92rem] outline-none transition-colors duration-200 box-border;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .form-input:focus {
+    border-color: rgba(13, 255, 127, 0.35);
+  }
+  .form-input-error {
+    border-color: #ff5b79 !important;
+  }
+  .form-label {
+    @apply block mb-1.5 font-cond text-[0.72rem] font-bold tracking-[0.12em] uppercase text-muted;
+  }
+  .form-error {
+    @apply font-body text-[0.72rem] text-red mt-1.5;
+  }
+  /* ── Dropdown (For custom select menus) ── */
+  .dropdown-list {
+    @apply absolute top-[calc(100%+4px)] left-0 right-0 z-[1002] rounded-[10px] overflow-hidden backdrop-blur-3xl;
+    border: 1px solid rgba(13, 255, 127, 0.18);
+    background: rgba(8, 11, 16, 0.99);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+  }
+  .dropdown-item {
+    @apply flex items-center gap-2.5 py-2.5 px-3.5 cursor-pointer font-body text-sm text-muted transition-colors duration-100 select-none;
+  }
+  .dropdown-item:hover {
+    @apply bg-green/[0.07];
+  }
+  .dropdown-item-active {
+    @apply text-white bg-accent-dim;
+  }
+}
+
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {

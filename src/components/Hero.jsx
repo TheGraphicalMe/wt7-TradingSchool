@@ -104,11 +104,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Scroll cue (desktop only) ── */}
-        <div className="h-scroll-cue">
-          <span className="h-scroll-label">Scroll</span>
-          <div className="h-scroll-line" />
-        </div>
       </section>
 
       <style>{`
@@ -223,33 +218,7 @@ export default function Hero() {
           animation: hSlide 0.7s 0.95s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
         }
 
-        /* ── Scroll cue ── */
-        .h-scroll-cue {
-          position: absolute;
-          bottom: 32px;
-          right: 5vw;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 8px;
-          z-index: 5;
-          opacity: 0;
-          animation: hSlide 0.7s 1.3s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
-        }
-        .h-scroll-label {
-          font-family: var(--font-cond);
-          font-size: 0.6rem;
-          font-weight: 600;
-          letter-spacing: 0.3em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.25);
-          writing-mode: vertical-rl;
-        }
-        .h-scroll-line {
-          width: 1px;
-          height: 48px;
-          background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
-        }
+
 
         /* ── Animation ── */
         @keyframes hSlide {
@@ -309,7 +278,7 @@ export default function Hero() {
             margin-bottom: auto;
           }
 
-          .h-scroll-cue { display: none; }
+
 
           .h-ctas {
             gap: 1.5vh;
@@ -331,7 +300,7 @@ export default function Hero() {
 
         /* ── Landscape short screens ── */
         @media (max-height: 500px) and (orientation: landscape) {
-          .h-scroll-cue    { display: none; }
+
           .h-sub           { display: none; }
           .h-eyebrow       { margin-bottom: 4px; }
           .h-title         { margin-bottom: 8px; }
