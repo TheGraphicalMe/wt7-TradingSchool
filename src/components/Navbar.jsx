@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 const LINKS = [
   { label: 'About',        href: '#about'        },
@@ -12,6 +13,8 @@ const LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+  const homeSectionHref = (href) => location.pathname === '/' ? href : `/${href}`
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60)
@@ -46,7 +49,7 @@ export default function Navbar() {
       <ul style={{ display: 'flex', gap: '2.4rem', listStyle: 'none', margin: 0, padding: 0 }} className="desktop-nav">
         {LINKS.map(l => (
           <li key={l.href}>
-            <a href={l.href} style={{ fontFamily: 'var(--font-cond)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#fff', transition: 'color 0.3s, text-shadow 0.3s' }}
+            <a href={homeSectionHref(l.href)} style={{ fontFamily: 'var(--font-cond)', fontSize: '0.72rem', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#fff', transition: 'color 0.3s, text-shadow 0.3s' }}
               onMouseEnter={e => { e.target.style.textShadow = '0 0 8px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.3)' }} onMouseLeave={e => { e.target.style.color = '#fff'; e.target.style.textShadow = 'none' }}>
               {l.label}
             </a>
@@ -54,7 +57,7 @@ export default function Navbar() {
         ))}
       </ul>
 
-      <a href="#courses" className="btn btn-accent" style={{ fontSize: '0.7rem', padding: '12px 28px' }}>Become Student</a>
+      <a href="/live-batch" className="btn btn-accent" style={{ fontSize: '0.7rem', padding: '12px 28px' }}>Become Student</a>
 
       {/* Mobile hamburger */}
       <button onClick={() => setMenuOpen(!menuOpen)} style={{ display: 'none', flexDirection: 'column', gap: 5, background: 'none', border: 'none', padding: 4 }} className="hamburger">
@@ -83,12 +86,12 @@ export default function Navbar() {
         display: 'flex', flexDirection: 'column'
       }}>
         {LINKS.map(l => (
-          <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
+          <a key={l.href} href={homeSectionHref(l.href)} onClick={() => setMenuOpen(false)}
             style={{ display: 'block', fontFamily: 'var(--font-cond)', fontSize: '1.8rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'rgba(255,255,255,0.8)', padding: '16px 0', borderBottom: '1px solid var(--gray3)' }}>
             {l.label}
           </a>
         ))}
-        <a href="#courses" onClick={() => setMenuOpen(false)} className="btn btn-accent" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>Become Student</a>
+        <a href="/live-batch" onClick={() => setMenuOpen(false)} className="btn btn-accent" style={{ marginTop: 32, display: 'flex', justifyContent: 'center' }}>Become Student</a>
       </div>
 
       <style>{`

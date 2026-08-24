@@ -56,7 +56,7 @@ export default function Footer() {
           {/* CTA */}
           <div style={{ paddingTop:8 }}>
             <div style={{ fontFamily:'var(--font-cond)', fontSize:'0.6rem', fontWeight:700, letterSpacing:'0.3em', textTransform:'uppercase', color:'rgba(255,255,255,0.6)', marginBottom:16 }}>Ready?</div>
-            <a href="#courses" className="btn btn-accent">Become Student →</a>
+            <a href="/live-batch" className="btn btn-accent">Become Student →</a>
           </div>
         </div>
 

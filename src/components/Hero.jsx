@@ -99,7 +99,7 @@ export default function Hero() {
           <p className="h-sub">{TRADER.subTagline}</p>
 
           <div className="h-ctas">
-            <a href="#courses" className="btn btn-primary">Become Student →</a>
+            <a href="/live-batch" className="btn btn-primary">Become Student →</a>
             <a href="#about" className="btn btn-outline">Meet the Wizard</a>
           </div>
         </div>

@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import Home        from './pages/Home'
+import SeptemberBatch from './pages/SeptemberBatch'
 import Cursor      from './components/Cursor'
 import Preloader from './components/Preloader'
 // import PopupNotification from './components/PopupNotification'
 import { useMagneticButtons } from './hooks/useMagneticButtons'
-import ContactTab from './components/ContactTab'
 
 function App() {
   const [loaded, setLoaded] = useState(false)
@@ -20,8 +20,8 @@ function App() {
       <Cursor />
       <Routes>
         <Route path="/" element={loaded ? <Home /> : null} />
+        <Route path="/live-batch" element={loaded ? <SeptemberBatch /> : null} />
       </Routes>
-      <ContactTab />
       {/* {loaded && <PopupNotification />} */}
     </BrowserRouter>
   )

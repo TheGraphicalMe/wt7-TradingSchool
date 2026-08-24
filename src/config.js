@@ -29,7 +29,7 @@ His approach focuses on real market understanding rather than shortcuts or unrea
 //  QUICK TABS — shown on the hero section
 // ═══════════════════════════════════════════════════════════
 export const QUICK_TABS = [
-  { label: 'Live Trading Class', targetId: 'https://www.wizardtrader7.com/courses/880561?true&coupon=STUDENT007', color: 'var(--accent)', shadow: 'var(--accent)', theme: 'purple' },
+  { label: 'Live Trading Class', targetId: '/live-batch', color: 'var(--accent)', shadow: 'var(--accent)', theme: 'purple' },
   //{ label: 'Psychology Mastery', targetId: 'https://www.wizardtrader7.com/courses/813688', color: '#ffa94d', shadow: 'rgba(255,169,77,0.8)', theme: 'orange' },
   { label: 'Smart AI Access', targetId: 'https://smartaitradingpro.com/', color: '#00e5a0', shadow: 'rgba(0,229,160,0.8)', theme: 'green' },
 ]
@@ -55,9 +55,10 @@ export const COURSES = [
     tags: ['Live Class', '1 Month Free Smart AI'],
     subtitle: 'FREE 1 MONTH ACCESS TO SMART AI IF ENROLLED IN THIS BATCH.',
     price: '₹28,000',
+    landingPage: '/live-batch',
     duration: '1 Month',
     sessions: '5× per week',
-    mode: 'Online — Live Zoom',
+    mode: 'Online',
     batchDate: '20 SEPTEMBER · 10 PM – 11 PM IST',
     hasCoupon: true,
     couponValue: '₹13,000',
@@ -68,7 +69,7 @@ export const COURSES = [
       },
       {
         type: 'section',
-        icon: '🪙',
+        icon: '📊',
         title: 'Crypto & Gold Market Fundamentals'
       },
       { type: 'item', text: 'Understanding how Crypto and Gold markets move' },

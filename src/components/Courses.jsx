@@ -374,7 +374,9 @@ function CourseModal({ course, onClose }) {
               </div>
               <button
                 onClick={() => {
-                  if (course.isPrebook) {
+                  if (course.landingPage) {
+                    window.location.assign(course.landingPage)
+                  } else if (course.isPrebook) {
                     navigate(course.prebookUrl || '/ai-indicator')
                     document.body.style.overflow = ''
                   } else {
@@ -600,7 +602,7 @@ function CourseCard({ course, index, onReadMore }) {
             </button>
           )}
           <button
-            onClick={() => course.isPrebook ? navigate(course.prebookUrl || '/ai-indicator') : (window.location.href = course.paymentUrl)}
+            onClick={() => course.landingPage ? window.location.assign(course.landingPage) : course.isPrebook ? navigate(course.prebookUrl || '/ai-indicator') : (window.location.href = course.paymentUrl)}
             className="btn btn-accent"
             style={{ padding: '13px 0', justifyContent: 'center', fontSize: '0.72rem' }}
           >
