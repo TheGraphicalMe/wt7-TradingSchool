@@ -50,7 +50,7 @@ export const COURSES = [
     tag: 'Live September Batch',
     isLive: true,           // ← drives the LIVE badge on the card
     lifetimeAccess: true,           // ← drives the Lifetime Access badge
-    image: '/assets/media/september_batch_basic_to_advance.webp',
+    image: '/assets/media/september_batch_basic_to_advance.png',
     title: 'BASIC TO ADVANCE BATCH – LIVE SEPTEMBER BATCH',
     tags: ['Live Class', '1 Month Free Smart AI'],
     subtitle: 'FREE 1 MONTH ACCESS TO SMART AI IF ENROLLED IN THIS BATCH.',
