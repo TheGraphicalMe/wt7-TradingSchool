@@ -1,12 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import AnimatedBackground from '../components/AnimatedBackground'
 import { COURSES } from '../config'
+import { motion, AnimatePresence } from 'framer-motion'
+import CountUp from 'react-countup'
+import { useInView } from 'react-intersection-observer'
 
 export default function SeptemberBatch() {
   const course = COURSES[0] // Assuming the September Batch is the first course
+
+  const [showStickyCTA, setShowStickyCTA] = useState(false)
+  const { ref: heroRef, inView: heroInView } = useInView({
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    if (!heroInView) {
+      setShowStickyCTA(true)
+    } else {
+      setShowStickyCTA(false)
+    }
+  }, [heroInView])
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  }
 
   return (
     <main className="noise min-h-screen flex flex-col bg-bg text-white relative">
@@ -15,18 +44,23 @@ export default function SeptemberBatch() {
 
       <div className="flex-1 pt-16 md:pt-20 pb-12 relative z-10 max-w-7xl mx-auto px-6 w-full">
         {/* Hero Section */}
-        <div className="grid md:grid-cols-2 gap-10 lg:gap-12 items-center mb-12">
-          <div className="order-2 md:order-1 flex flex-col gap-4 md:pt-8">
+        <div ref={heroRef} className="grid md:grid-cols-2 gap-10 lg:gap-12 items-center mb-12">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="order-2 md:order-1 flex flex-col gap-4 md:pt-8"
+          >
 
-            <h1 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold font-cond tracking-tight leading-tight">
+            <motion.h1 variants={fadeInUp} className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold font-cond tracking-tight leading-tight">
               {course.title}
-            </h1>
+            </motion.h1>
 
-            <p className="text-muted-lt text-base md:text-lg leading-relaxed border-l-4 border-green pl-3.5">
+            <motion.p variants={fadeInUp} className="text-muted-lt text-base md:text-lg leading-relaxed border-l-4 border-green pl-3.5">
               {course.subtitle}
-            </p>
+            </motion.p>
 
-            <div className="grid grid-cols-2 gap-3.5 bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md mt-2 mb-1">
+            <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-3.5 bg-white/5 border border-white/10 p-5 rounded-2xl backdrop-blur-md mt-2 mb-1 shadow-[0_4px_20px_rgba(0,0,0,0.2)]">
               <div className="flex flex-col">
                 <span className="text-muted text-xs uppercase tracking-wider font-cond">Batch Date</span>
                 <span className="font-semibold text-sm md:text-base text-white mt-0.5">{course.batchDate}</span>
@@ -42,17 +76,20 @@ export default function SeptemberBatch() {
                 </div>
                 <div className="flex items-center justify-between pt-2 border-t border-white/10">
                   <span className="text-white text-sm uppercase tracking-wider font-cond font-bold">Final Price</span>
-                  <span className="text-2xl md:text-3xl font-bold text-[#FFD166] drop-shadow-[0_0_10px_rgba(255,209,102,0.55)]">₹17,560</span>
+                  <span className="text-2xl md:text-3xl font-bold text-[#FFD166] drop-shadow-[0_0_10px_rgba(255,209,102,0.55)] flex items-center">
+                    ₹<CountUp end={17560} duration={2.5} separator="," />
+                  </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-red/10 border border-red/30 py-2.5 px-4 rounded-xl flex items-center justify-center gap-2.5 shadow-[0_0_15px_rgba(255,91,121,0.2)]">
-              <span className="text-xl animate-bounce">🔥</span>
-              <span className="text-red font-bold text-sm md:text-base uppercase tracking-wider">Hurry! 70% Seats are already full</span>
-            </div>
+            <motion.div variants={fadeInUp} className="bg-red/10 border border-red/30 py-2.5 px-4 rounded-xl flex items-center justify-center gap-2.5 shadow-[0_0_15px_rgba(255,91,121,0.3)] relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-red/0 via-red/10 to-red/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <span className="text-xl animate-bounce relative z-10">🔥</span>
+              <span className="text-red font-bold text-sm md:text-base uppercase tracking-wider relative z-10">Hurry! 70% Seats are already full</span>
+            </motion.div>
 
-            <div className="flex flex-col gap-2 mt-1 mb-4">
+            <motion.div variants={fadeInUp} className="flex flex-col gap-2 mt-1 mb-4 relative z-10">
               <a
                 href="https://book.stripe.com/4gMaEY2gT9iw5jx4yz6Na02"
                 target="_blank"
@@ -61,9 +98,9 @@ export default function SeptemberBatch() {
               >
                 <span>Enroll Now & Secure Your Seat</span>
               </a>
-            </div>
+            </motion.div>
 
-            <div className="flex items-center justify-center gap-2 py-2.5 px-4 bg-white/5 border border-white/10 rounded-xl text-sm text-muted-lt">
+            <motion.div variants={fadeInUp} className="flex items-center justify-center gap-2 py-2.5 px-4 bg-white/5 border border-white/10 rounded-xl text-sm text-muted-lt">
               <span>After payment, for support contact us on</span>
               <a
                 href="https://wa.me/918004662859"
@@ -76,60 +113,156 @@ export default function SeptemberBatch() {
                 </svg>
                 WhatsApp
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="order-1 md:order-2 flex items-center justify-center relative group perspective-1000 h-full w-full">
-            <div className="relative w-full transform transition-transform duration-500 hover:rotate-y-6 hover:rotate-x-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotateY: -10 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="order-1 md:order-2 flex items-center justify-center relative group h-full w-full"
+            style={{ perspective: 1000 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05, rotateY: 10, rotateX: 5 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="relative w-full transform-gpu"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
               <img
                 src={course.image}
                 alt="September Batch"
-                className="w-full h-auto max-h-[430px] lg:max-h-[470px] object-contain rounded-3xl border border-white/10 relative z-10 shadow-2xl mx-auto"
+                className="w-full h-auto max-h-[430px] lg:max-h-[470px] object-contain rounded-3xl border border-white/10 relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] mx-auto"
               />
               <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 z-20 pointer-events-none"></div>
-            </div>
-          </div>
+
+              <div
+                className="absolute -top-5 -right-2 md:-right-2 md:-top-5 z-30 inline-flex items-center gap-1.5 md:gap-2 px-3.5 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-[#9B6DFF] via-[#854ff7] to-[#6824e3] text-white text-xs md:text-sm font-bold uppercase tracking-widest shadow-[0_4px_25px_rgba(155,109,255,0.65)] border border-white/20 transform rotate-2 md:rotate-3"
+                style={{ transform: 'translateZ(30px)', fontFamily: 'var(--font-cond)', textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
+              >
+                Last Live Batch of the Year
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Key Live Batch Highlights — Non-Box Luxury Showcase */}
+        <div className="mt-24 mb-28 relative max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16 relative z-10"
+          >
+            <span className="text-[#9B6DFF] font-cond font-bold uppercase tracking-widest text-xs sm:text-sm px-4 py-1.5 rounded-full border border-[#9B6DFF]/30 bg-[#9B6DFF]/5 backdrop-blur-md">
+              Why Join This Live Batch
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-cond tracking-tight mt-4 text-white">
+              Live Batch Key Highlights
+            </h2>
+            <p className="text-muted-lt max-w-2xl mx-auto mt-3 text-base sm:text-lg">
+              Designed to take you from foundational understanding to live market execution.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 relative z-10"
+          >
+            {(course.keyPointers || []).map((ptr, idx) => (
+              <motion.div
+                key={idx}
+                variants={fadeInUp}
+                className="group relative flex items-start gap-5 py-6 border-b border-white/10 hover:border-[#9B6DFF]/50 transition-all duration-300"
+              >
+                {/* Left Glow Bar indicator on hover */}
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#9B6DFF] via-[#854ff7] to-[#FFD166] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Index Number & Icon */}
+                <div className="flex flex-col items-center flex-shrink-0 pt-0.5 pl-3">
+                  <span className="font-cond font-extrabold text-2xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-br from-[#9B6DFF] to-white/40 group-hover:from-[#FFD166] group-hover:to-[#9B6DFF] transition-all">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <span className="text-2xl sm:text-3xl mt-1 drop-shadow-[0_0_12px_rgba(155,109,255,0.4)] transform group-hover:scale-110 group-hover:rotate-6 transition-transform duration-300">
+                    {ptr.icon}
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 pr-2">
+                  <h3 className="text-lg sm:text-xl font-bold font-cond tracking-wide text-white group-hover:text-[#FFD166] transition-colors duration-200">
+                    {ptr.title}
+                  </h3>
+                  <p className="text-muted-lt text-sm sm:text-base leading-relaxed mt-1.5 font-light">
+                    {ptr.desc}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
 
         {/* Modules Section */}
-        <div className="max-w-4xl mx-auto mt-32 relative">
+        <div className="max-w-4xl mx-auto mt-24 relative">
 
-          <h2 className="text-4xl md:text-5xl font-bold font-cond tracking-tight mb-16 text-center">What You Will Learn</h2>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold font-cond tracking-tight mb-16 text-center"
+          >
+            What You Will Learn
+          </motion.h2>
 
-          <div className="space-y-6 relative z-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="space-y-4 relative z-10"
+          >
             {course.modules.map((mod, i) => {
               if (mod.type === 'intro') {
                 return (
-                  <div key={i} className="text-muted-lt text-xl leading-relaxed mb-12 text-center max-w-3xl mx-auto">
+                  <motion.div variants={fadeInUp} key={i} className="text-muted-lt text-xl leading-relaxed mb-12 text-center max-w-3xl mx-auto">
                     {mod.text.split('\n').map((line, j) => (
                       <p key={j} className="mb-4">{line}</p>
                     ))}
-                  </div>
+                  </motion.div>
                 )
               }
               if (mod.type === 'section') {
                 return (
-                  <div key={i} className="flex items-center gap-6 mt-16 mb-8 pb-4 border-b border-white/10">
+                  <motion.div variants={fadeInUp} key={i} className="flex items-center gap-6 mt-16 mb-8 pb-4 border-b border-white/10">
                     <span className="text-4xl bg-white/5 p-4 rounded-2xl border border-white/10 shadow-lg">{mod.icon}</span>
                     <h3 className="text-3xl font-bold font-cond tracking-wide text-white uppercase">{mod.title}</h3>
-                  </div>
+                  </motion.div>
                 )
               }
               if (mod.type === 'item') {
                 return (
-                  <div key={i} className="flex items-start gap-4 p-5 bg-white/5 border border-white/5 rounded-xl ml-0 md:ml-12 hover:bg-white/10 hover:border-white/10 transition-all hover:translate-x-2">
-                    <div className="text-green mt-1 bg-green/10 p-1.5 rounded-full">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <motion.div
+                    variants={fadeInUp}
+                    key={i}
+                    className="group flex items-start gap-4 py-3.5 px-2 border-b border-white/5 hover:border-white/20 transition-all duration-200"
+                  >
+                    <div className="text-[#00e5a0] mt-1 bg-[#00e5a0]/10 p-1.5 rounded-full flex-shrink-0 group-hover:scale-110 group-hover:bg-[#00e5a0]/20 transition-all">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <p className="text-muted-lt text-lg leading-relaxed pt-1">{mod.text}</p>
-                  </div>
+                    <p className="text-muted-lt text-base sm:text-lg leading-relaxed group-hover:text-white transition-colors">{mod.text}</p>
+                  </motion.div>
                 )
               }
               if (mod.type === 'disclaimer') {
                 return (
-                  <div key={i} className="mt-24 p-8 bg-red/5 border border-red/20 rounded-2xl relative overflow-hidden">
+                  <motion.div variants={fadeInUp} key={i} className="mt-24 p-8 bg-red/5 border border-red/20 rounded-2xl relative overflow-hidden">
                     <div className="absolute top-0 left-0 w-2 h-full bg-red/50"></div>
                     <h4 className="text-red font-bold text-xl mb-6 flex items-center gap-3">
                       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -142,12 +275,12 @@ export default function SeptemberBatch() {
                         <p key={j} className="text-muted text-base">{line.replace('•', '').trim()}</p>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 )
               }
               return null
             })}
-          </div>
+          </motion.div>
 
           <div className="mt-24 text-center">
             <a
@@ -164,6 +297,31 @@ export default function SeptemberBatch() {
       </div>
 
       <Footer />
+
+      <AnimatePresence>
+        {showStickyCTA && (
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed bottom-0 left-0 w-full z-50 p-4 bg-[#0a0a0a]/90 backdrop-blur-xl border-t border-white/10 flex items-center justify-between md:justify-center gap-4 md:gap-8 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]"
+          >
+            <div className="hidden md:block">
+              <h3 className="text-white font-bold font-cond tracking-wide text-lg">Secure Your Spot in the September Batch</h3>
+              <p className="text-[#FFD166] text-sm">Hurry! Seats are filling fast.</p>
+            </div>
+            <a
+              href="https://book.stripe.com/4gMaEY2gT9iw5jx4yz6Na02"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex-1 md:flex-none flex items-center justify-center gap-2 bg-[#9B6DFF] hover:bg-[#854ff7] text-white font-cond font-bold text-sm sm:text-lg uppercase tracking-wider py-3 px-6 rounded-xl shadow-[0_4px_25px_rgba(155,109,255,0.45)] transition-all"
+            >
+              <span>Enroll Now for ₹17,560</span>
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   )
 }

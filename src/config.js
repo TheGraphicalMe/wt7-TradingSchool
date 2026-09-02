@@ -50,7 +50,7 @@ export const COURSES = [
     tag: 'Live September Batch',
     isLive: true,           // ← drives the LIVE badge on the card
     lifetimeAccess: true,           // ← drives the Lifetime Access badge
-    image: '/assets/media/september_batch_basic_to_advance.png',
+    image: '/assets/media/september_batch_basic_to_advance_3.png',
     title: 'BASIC TO ADVANCE BATCH – LIVE SEPTEMBER BATCH',
     tags: ['Live Class', '1 Month Free Smart AI'],
     subtitle: 'FREE 1 MONTH ACCESS TO SMART AI IF ENROLLED IN THIS BATCH.',
@@ -59,114 +59,81 @@ export const COURSES = [
     duration: '1 Month',
     sessions: '5× per week',
     mode: 'Online',
-    batchDate: '20 SEPTEMBER · 10 PM – 11 PM IST',
+    batchDate: '20 SEPTEMBER · 10 PM – 11 PM IST (Extended Sessions)',
     hasCoupon: true,
     couponValue: '₹13,000',
+    keyPointers: [
+      {
+        title: 'Live Sessions (10 PM - 11 PM IST + Extensions)',
+        desc: 'Interactive live classes every evening. Classes can be extended beyond 11 PM because we believe in complete, in-depth learning without rushing.',
+        icon: '⏰'
+      },
+      {
+        title: 'Full Basic to Advance Knowledge',
+        desc: 'Complete step-by-step guidance from zero market basics to advanced institutional price action strategies with mentor Harshit Patel.',
+        icon: '🎓'
+      },
+      {
+        title: 'Direct Doubt Clearance Sessions',
+        desc: 'Dedicated interactive Q&A where you can ask your doubts directly to the mentor, unmute, and clear every single concept.',
+        icon: '💬'
+      },
+      {
+        title: 'Live Trading & Real Market Analysis',
+        desc: 'Practical hands-on learning on live charts, real-time market movements, and live trade execution logic.',
+        icon: '📈'
+      },
+      {
+        title: 'FREE 1 Month Access to Smart AI',
+        desc: 'Get full complimentary access for 1 month to our proprietary Smart AI indicator tool for automated market signals.',
+        icon: '🤖'
+      },
+      {
+        title: 'Risk Management & Position Sizing',
+        desc: 'Master position sizing, stop-loss strategy, capital preservation, and risk-to-reward optimization.',
+        icon: '🛡️'
+      },
+      {
+        title: 'Trading Psychology & Discipline',
+        desc: 'Overcome fear, greed, FOMO, and revenge trading with proven psychological frameworks for long-term consistency.',
+        icon: '🧠'
+      },
+      {
+        title: 'Crypto & Gold Market Specialization',
+        desc: 'Learn high-probability trading setups tailored for high-liquidity global markets like Crypto and Gold.',
+        icon: '🥇'
+      }
+    ],
     modules: [
       {
         type: 'intro',
-        text: 'If you want to truly understand Crypto 🪙 and Gold 🥇 trading, this intensive 1-month live training program is designed to take you from absolute basics to advanced trading concepts using real market conditions.\n\nThis program is built from my 10+ years of real trading experience 📈 in financial markets and structured to help traders understand how markets actually behave, not just theoretical concepts.\n\nUnlike typical courses that rely heavily on PDFs and recorded lectures 📚, this training focuses on learning directly on live charts 📊 and real-time market movements, so students can understand how decisions are made in real trading environments.'
+        text: 'An intensive 1-month live training program designed to take you from absolute basics to advanced trading concepts directly on live Crypto 🪙 and Gold 🥇 charts.'
       },
       {
         type: 'section',
-        icon: '📊',
-        title: 'Crypto & Gold Market Fundamentals'
+        icon: '📌',
+        title: 'Core Topics Covered'
       },
-      { type: 'item', text: 'Understanding how Crypto and Gold markets move' },
-      { type: 'item', text: 'Key drivers behind price movements' },
-      { type: 'item', text: 'Market structure and market behavior' },
-
-      {
-        type: 'section',
-        icon: '📈',
-        title: 'Technical Analysis (Practical Approach)'
-      },
-      { type: 'item', text: 'Chart reading from basic to advanced' },
-      { type: 'item', text: 'High-probability trading setups' },
-      { type: 'item', text: 'Identifying trends, reversals & momentum' },
-      { type: 'item', text: 'Understanding liquidity and market behavior' },
-
-      {
-        type: 'section',
-        icon: '⏰',
-        title: 'Best Time Windows for Trading'
-      },
-      { type: 'item', text: 'Learn the most effective trading sessions for Crypto & Gold' },
-      { type: 'item', text: 'Identify high-liquidity market hours for better trade opportunities' },
-      { type: 'item', text: 'Understanding when volatility is highest for maximum trading outcome' },
-      { type: 'item', text: 'How professional traders choose the right time window to trade' },
-
-      {
-        type: 'section',
-        icon: '📊',
-        title: 'Live Chart Learning'
-      },
-      { type: 'item', text: 'Concepts explained directly on live charts' },
-      { type: 'item', text: 'Learn how to analyze real-time market situations' },
-      { type: 'item', text: 'Practice reading charts like professional traders' },
-
-      {
-        type: 'section',
-        icon: '🛡️',
-        title: 'Risk Management (Most Important Skill)'
-      },
-      { type: 'item', text: 'Proper position sizing strategies' },
-      { type: 'item', text: 'Capital protection techniques' },
-      { type: 'item', text: 'How professional traders control risk' },
-
-      {
-        type: 'section',
-        icon: '🧠',
-        title: 'Trading Psychology'
-      },
-      { type: 'item', text: 'How to control emotions during trades' },
-      { type: 'item', text: 'Building discipline and consistency' },
-      { type: 'item', text: 'Avoiding common trader mistakes' },
-
-      {
-        type: 'section',
-        icon: '🎯',
-        title: 'Probability & Law of Averages'
-      },
-      { type: 'item', text: 'Understanding probability in trading' },
-      { type: 'item', text: 'Why no strategy wins every trade' },
-      { type: 'item', text: 'Building consistency using statistical thinking' },
-
-      {
-        type: 'section',
-        icon: '🔥',
-        title: 'Live Market Sessions'
-      },
-      { type: 'item', text: 'Live training with real markets' },
-      { type: 'item', text: 'Real-time analysis of Crypto & Gold charts' },
-      { type: 'item', text: 'Practical learning with actual market examples' },
+      { type: 'item', text: 'Crypto & Gold Market Structure — Key price drivers, liquidity zones, and buyer vs seller momentum.' },
+      { type: 'item', text: 'Technical Analysis & Price Action — Advanced chart reading, market trends, support/resistance & reversal patterns.' },
+      { type: 'item', text: 'High-Probability Trade Setups — Precise entry & exit triggers, supply/demand zones, and avoiding liquidity traps.' },
+      { type: 'item', text: 'Optimal Trading Time Windows — Identifying London & New York session overlaps for maximum volatility & accuracy.' },
+      { type: 'item', text: 'Risk Management System — Position sizing rules, capital protection, stop loss mastery & risk-to-reward ratios (1:2+).' },
+      { type: 'item', text: 'Trading Psychology & Discipline — Controlling fear, greed & FOMO, stopping revenge trading, and building consistency.' },
+      { type: 'item', text: 'Live Chart Execution & Direct Doubt Solving — Real-time market analysis, live trade breakdowns, and direct Q&A with mentor.' },
 
       {
         type: 'section',
         icon: '👨‍🎓',
         title: 'Who This Program Is For'
       },
-      { type: 'item', text: 'Beginners who want to start trading the right way' },
-      { type: 'item', text: 'Traders who struggle with consistency' },
-      { type: 'item', text: 'People who want to understand real trading, not just theory' },
-      {
-        type: 'intro',
-        text: 'By the end of this program, you will develop a structured approach to analyzing markets, managing risk, and making disciplined trading decisions.'
-      },
-
-      {
-        type: 'section',
-        icon: '🚨',
-        title: 'Limited Seats Only'
-      },
-      {
-        type: 'intro',
-        text: 'If you are serious about learning trading the right way 📈, understanding real markets, and developing professional trading discipline, this batch starting 20th September is the perfect opportunity.\n\n🚀 Secure your seat and begin your journey toward structured trading today.'
-      },
+      { type: 'item', text: 'Beginners looking to build a strong foundation with step-by-step guidance.' },
+      { type: 'item', text: 'Traders struggling with consistency who want a structured rule-based system.' },
+      { type: 'item', text: 'Anyone who wants practical live-market training rather than theoretical PDFs.' },
 
       {
         type: 'disclaimer',
-        text: '• We are not SEBI registered advisors.\n• This program is purely for educational purposes 📚.\n• We do not provide financial or investment advice.\n• Trading in financial markets involves risk ⚠️, and participants are responsible for their own decisions.\n• **Course fees are strictly non-refundable ❌ under any circumstance'
+        text: '• We are not SEBI registered advisors.\n• This program is purely for educational purposes 📚.\n• We do not provide financial or investment advice.\n• Trading in financial markets involves risk ⚠️, and participants are responsible for their own decisions.\n• Course fees are strictly non-refundable ❌ under any circumstance.'
       },
     ],
     paymentUrl: "https://www.wizardtrader7.com/courses/880561?true&coupon=STUDENT007",
@@ -511,19 +478,19 @@ export const PLATFORMS = [
     link: 'https://affs.click/DDB1D',
     logo: '/assets/media/xm.jpg',
   },
-  // {
-  //   title: 'WinPro FX',
-  //   badge: 'FOREX & CFD BROKER',
-  //   desc: 'Trade forex, indices, metals, commodities, and cryptocurrency CFDs on the MT5 platform with access to 300+ tradable instruments.',
-  //   code: 'Harshitpatel',
-  //   stats: [
-  //     { value: '300+', label: 'INSTRUMENTS' },
-  //     { value: 'MT5', label: 'PLATFORM' },
-  //     { value: '1:500', label: 'LEVERAGE' },
-  //   ],
-  //   link: 'https://my.winprofx.org/register?promo=Harshitpatel',
-  //   logo: '/assets/media/winprofx.png',
-  // }
+  {
+    title: 'WinPro FX',
+    badge: 'FOREX & CFD BROKER',
+    desc: 'Trade forex, indices, metals, commodities, and cryptocurrency CFDs on the MT5 platform with access to 300+ tradable instruments.',
+    code: 'Harshitpatel',
+    stats: [
+      { value: '300+', label: 'INSTRUMENTS' },
+      { value: 'MT5', label: 'PLATFORM' },
+      { value: '1:500', label: 'LEVERAGE' },
+    ],
+    link: 'https://my.winprofx.org/register?promo=Harshitpatel',
+    logo: '/assets/media/winprofx.png',
+  }
 ]
 
 // ═══════════════════════════════════════════════════════════
